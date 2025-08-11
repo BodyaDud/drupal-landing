@@ -1,0 +1,19 @@
+{% block page %}
+  <header role="banner">
+    {% if page.header %}
+      {{ page.header }}
+    {% endif %}
+  </header>
+
+  <main role="main">
+    {% if page.content %}
+      {{ page.content }}
+    {% endif %}
+  </main>
+
+  <footer>
+    {% if page.footer %}
+      {{ page.footer }}
+    {% endif %}
+  </footer>
+{% endblock %}

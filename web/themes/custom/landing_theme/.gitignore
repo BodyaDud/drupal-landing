@@ -1,0 +1,33 @@
+# Drupal & PHP
+/vendor/
+/web/sites/*/files/
+/web/sites/*/private/
+/web/sites/default/settings.php
+/.env
+
+# Composer
+composer.phar
+
+# Node
+/node_modules/
+/npm-debug.log
+/yarn-error.log
+
+# Build artifacts (adjust paths if you commit built css intentionally)
+web/themes/custom/*/css/*.map
+web/themes/custom/*/css/style.css.map
+
+# DDEV local & temp (you may keep .ddev/config.yaml if you want portability)
+.ddev/.global-config.yaml
+.ddev/.git
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

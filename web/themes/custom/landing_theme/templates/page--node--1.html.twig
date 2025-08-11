@@ -1,0 +1,71 @@
+{% block content %}
+  <div class="contact-page">
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="contact-border">
+      <div class="contact-wrapper">
+        <div class="contact-photo">
+          <img src="{{ base_path ~ directory }}/assets/img/photo.jpg" alt="My photo">
+        </div>
+        <div class="contact-details">
+          <h1>Hello, I’m Bohdan 👋</h1>
+          <p class="about">
+            I'm a Website Product Owner with strong technical knowledge. This site is my playground to explore everything possible about Web Development on Drupal.
+          </p>
+          <p>You can reach me at:</p>
+          <ul>
+            <li>Email: <a href="mailto:dudchenkobohdan@gmail.com">dudchenkobohdan@gmail.com</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/bohdan-dudchenko/">Bohdan Dudchenko</a></li>
+            <li>Phone: <a href="tel:+380999306659">+380999306659</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Confetti setup
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const confetti = [];
+    const colors = ['#ff0', '#0ff', '#f0f', '#0f0', '#00f', '#f00'];
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    for (let i = 0; i < 150; i++) {
+      confetti.push({
+        x: random(0, canvas.width),
+        y: random(-canvas.height, 0),
+        r: random(2, 6),
+        color: colors[Math.floor(Math.random() * colors.length)],
+        speed: random(2, 5),
+        drift: random(-2, 2)
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let c of confetti) {
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, c.r, 0, 2 * Math.PI);
+        ctx.fillStyle = c.color;
+        ctx.fill();
+        c.y += c.speed;
+        c.x += c.drift;
+
+        if (c.y > canvas.height) {
+          c.y = -c.r;
+          c.x = random(0, canvas.width);
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
+{% endblock %}

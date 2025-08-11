@@ -1,0 +1,14 @@
+name: "Landing Theme"
+type: theme
+description: "Custom landing page theme built from scratch."
+core_version_requirement: ^10
+package: Custom
+base theme: stable9
+
+libraries:
+  - landing_theme/global-styling
+
+regions:
+  header: Header
+  content: Content
+  footer: Footer
