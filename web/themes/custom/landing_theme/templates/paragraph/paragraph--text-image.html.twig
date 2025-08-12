@@ -1,0 +1,22 @@
+{#
+  Custom template for the "Text Image" paragraph type.
+  Machine name: text_image
+#}
+
+<div class="paragraph paragraph--text-image">
+  <div class="paragraph__inner">
+    
+    {% if content.field_image %}
+      <div class="paragraph__image">
+        {{ content.field_image }}
+      </div>
+    {% endif %}
+
+    {% if content.field_text %}
+      <div class="paragraph__text">
+        {{ content.field_text }}
+      </div>
+    {% endif %}
+
+  </div>
+</div>

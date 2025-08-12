@@ -1,0 +1,15 @@
+<div class="text-image-component text-image--{{ image_position }}">
+  {% if image_url %}
+    <div class="text-image__image">
+      <img src="{{ image_url }}" alt="{{ title }}">
+    </div>
+  {% endif %}
+  <div class="text-image__content">
+    {% if title %}
+      <h2>{{ title }}</h2>
+    {% endif %}
+    {% if body %}
+      <p>{{ body }}</p>
+    {% endif %}
+  </div>
+</div>

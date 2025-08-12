@@ -197,3 +197,32 @@ body {
     overflow: auto;
   }
 }
+.paragraph--text-image {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.paragraph--text-image .paragraph__image {
+  flex: 0 0 40%;
+}
+.paragraph--text-image .paragraph__image img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.paragraph--text-image .paragraph__text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .paragraph--text-image {
+    flex-direction: column;
+  }
+  .paragraph--text-image .paragraph__image {
+    flex: 0 0 auto;
+  }
+}
