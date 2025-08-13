@@ -1,22 +1,22 @@
 {#
-  Custom template for the "Text Image" paragraph type.
-  Machine name: text_image
+  Paragraph template for Text & Image
 #}
 
-<div class="paragraph paragraph--text-image">
-  <div class="paragraph__inner">
-    
+<div class="paragraph--text-image-wrapper">
+  {% if content.field_title %}
+    <h2 class="paragraph--text-image-title">{{ content.field_title }}</h2>
+  {% endif %}
+
+  {% set position = content.field_image_position[0]['#markup']|lower %}
+  <div class="paragraph--text-image image-{{ position|default('left') }}">
     {% if content.field_image %}
       <div class="paragraph__image">
         {{ content.field_image }}
       </div>
     {% endif %}
 
-    {% if content.field_text %}
-      <div class="paragraph__text">
-        {{ content.field_text }}
-      </div>
-    {% endif %}
-
+    <div class="paragraph__text">
+      {{ content.field_text }}
+    </div>
   </div>
 </div>
